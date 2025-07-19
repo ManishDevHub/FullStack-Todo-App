@@ -1,4 +1,5 @@
   import mongoose from 'mongoose'
+import { string } from 'zod';
 
   const UserSchema = new mongoose.Schema({
     username: {
@@ -15,6 +16,9 @@
           type: String ,
         required: true , 
       select:false,
+     } , 
+     token: {
+      type: string,
      }
 
   }) 
