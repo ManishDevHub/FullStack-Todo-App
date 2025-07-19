@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const todoSchema = mongoose.Schema({ 
+const todoSchema =  mongoose.Schema({ 
     text:{
         type:String,
         required :true

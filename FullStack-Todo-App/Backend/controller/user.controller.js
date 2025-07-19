@@ -1,12 +1,12 @@
-import User from "../modal/user.model.js";
+import User from "../models/user.model.js";
 import {z} from 'zod'
 import bcrypt from 'bcrypt'
 import { generateTokenAndSaveInCookies } from "../jwt/token.js";
 
 const userSchema = z.object({
-    email:z.string().email({mess:"invaid email addredd"}),
-    username: z.string().min(3 , {mess:"Username atleast 3 characters long"}).max(30),
-    password:z.string().min(6 ,{mess:"Password atleast 6 characters long"}).max(20),
+    email:z.string().email({message:"invaid email addredd"}),
+    username: z.string().min(3 , {message:"Username atleast 3 characters long"}).max(30),
+    password:z.string().min(6 ,{message:"Password atleast 6 characters long"}).max(20),
 
 })
 export const register = async  (req , res ) =>{
@@ -38,11 +38,11 @@ export const register = async  (req , res ) =>{
 
         const newUser = new User({email  , username, password:hashPassword});
 
-        await new User.save();
+        await newUser.save();
         if(newUser){
 
           const token =  await  generateTokenAndSaveInCookies(newUser._id , res);
-            res.status(200).joson({mess:"User registered Successfully" , newUser , token})
+            res.status(200).json({mess:"User registered Successfully" , newUser , token})
         }
 
     }catch(error){

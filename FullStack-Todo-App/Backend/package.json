@@ -7,9 +7,9 @@
   ],
   "license": "ISC",
   "author": "Manish Kumar",
-  "type": "commonjs",
+  
   "main": "index.js",
-  "types": "module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
