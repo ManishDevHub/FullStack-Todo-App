@@ -11,6 +11,6 @@ export const generateTokenAndSaveInCookies = async (userId, res) => {
     path: "/"
   });
 
-  await User.findByIdAndUpdate(userId, { token });  
+  // await User.findByIdAndUpdate(userId, { token });  
   return token;
 };
